@@ -7,6 +7,7 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
+    # このAPI_DOMAINの環境変数に本番用ドメインを設定する
     origins ENV['API_DOMAIN'] || ""
 
     resource '*',
