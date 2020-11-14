@@ -24,4 +24,3 @@ RUN apk update && \
 
 COPY . .
 
-CMD ["rails", "server", "-b", "0.0.0.0"]
