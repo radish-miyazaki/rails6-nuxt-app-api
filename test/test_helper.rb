@@ -17,5 +17,9 @@ class ActiveSupport::TestCase
   # Run tests in parallel with specified workers
   parallelize(workers: :number_of_processors)
 
-  # Add more helper methods to be used by all tests here...
+  # テスト用の共通ユーザー
+  def active_user
+    User.find_by(activated: true)
+  end
+
 end
