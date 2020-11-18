@@ -31,6 +31,9 @@ gem 'hirb', '~> 0.7.3'
 # コンソール文字列補正
 gem 'hirb-unicode-steakknife', '~> 0.0.9'
 
+# JWT(ジェット)認証用gem
+gem 'jwt', '~> 2.2'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
