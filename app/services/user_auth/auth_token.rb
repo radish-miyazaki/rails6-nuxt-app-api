@@ -23,6 +23,11 @@ module UserAuth
       time + I18n.t("datetime.periods.#{period}", default: "")
     end
 
+    # subjectからユーザーを検索する
+    def entity_for_user
+      User.find @payload["sub"]
+    end
+
     private
 
       # エンコードキー(config/initiazers/user_auth.rb)
@@ -77,10 +82,6 @@ module UserAuth
         { typ: "JWT" }
       end
 
-      # subjectからユーザーを検索する
-      def entity_for_user
-        User.find @payload["sub"]
-      end
     # privateメソッド ここまで
   end
 end
