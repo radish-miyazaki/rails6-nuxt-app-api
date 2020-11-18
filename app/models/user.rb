@@ -2,6 +2,8 @@ require "validator/email_validator"
 
 class User < ApplicationRecord
 
+  include UserAuth::Tokenizable
+
   # バリデーション直前の処理##################################
   before_validation :downcase_email  
   # /バリデーション直前の処理#################################
