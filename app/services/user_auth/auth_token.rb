@@ -70,5 +70,11 @@ module UserAuth
       def header_fields
         { typ: "JWT" }
       end
+
+      # subjectからユーザーを検索する
+      def entity_for_user
+        User.find @payload["sub"]
+      end
+    # privateメソッド ここまで
   end
 end
