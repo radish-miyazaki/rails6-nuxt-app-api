@@ -1,8 +1,21 @@
-require 'test_helper'
-
-class Api::V1::UsersControllerTest < ActionDispatch::IntegrationTest
-
+class Api::V1::UserTokenController < ApplicationController
   rescue_from UserAuth.not_found_exception_class, with: :not_found
+  before_action :delete_cookie
+  before_action :authenticate, only: [:create]
+
+  # login
+  def create
+    cookies[token_access_key] = cookie_token
+    render json: {
+      exp: auth.payload[:exps],
+      user: entity.my_json
+    }
+  end
+
+  # logout
+  def destroy
+    head(:ok)
+  end
 
   private
 
