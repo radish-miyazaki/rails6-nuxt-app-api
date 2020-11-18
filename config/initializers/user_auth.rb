@@ -28,6 +28,6 @@ module UserAuth
   self.token_access_key = :access_token
 
   # ログインユーザーが見つからない場合のRailsの例外を指定
-  mattr_accessor :not_found_expection_class
-  self.not_found_expection_class = ActiveRecord::RecordNotFound
+  mattr_accessor :not_found_exception_class
+  self.not_found_exception_class = ActiveRecord::RecordNotFound
 end

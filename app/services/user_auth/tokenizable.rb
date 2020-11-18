@@ -19,7 +19,7 @@ module UserAuth
     end
 
     def to_token
-      AuthToken::new(payload: to_token_payload).token
+      AuthToken.new(payload: to_token_payload).token
     end
     
     # 有効期限つきトークン

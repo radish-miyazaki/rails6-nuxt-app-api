@@ -1,4 +1,5 @@
 class Api::V1::UserTokenController < ApplicationController
+  
   rescue_from UserAuth.not_found_exception_class, with: :not_found
   before_action :delete_cookie
   before_action :authenticate, only: [:create]
@@ -7,7 +8,7 @@ class Api::V1::UserTokenController < ApplicationController
   def create
     cookies[token_access_key] = cookie_token
     render json: {
-      exp: auth.payload[:exps],
+      exp: auth.payload[:exp],
       user: entity.my_json
     }
   end
